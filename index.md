@@ -25,4 +25,4 @@ I combine evolutionary game theory (replicator dynamics) with multi-agent reinfo
 - **Activities:** /activities/  
 
 ## Contact
-GitHub: https://github.com/jaydenjung
+GitHub: https://github.com/jaydenjung-bohs09

@@ -18,7 +18,6 @@ kramdown:
 # If you later want blog-style posts, you can add collections or use _posts.
 collections: {}
 
-# === Sidebar Navigation ===
 defaults:
   - scope:
       path: ""
@@ -27,6 +26,10 @@ defaults:
       layout: single
       sidebar:
         nav: "main"
+
+# Enable top navigation (masthead) using _data/navigation.yml
+header:
+  nav: "main"
 
 author:
   name: "Jayden Jung"

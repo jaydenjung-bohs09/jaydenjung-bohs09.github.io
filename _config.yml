@@ -15,8 +15,15 @@ kramdown:
   math_engine: mathjax
 
 # === Collections (keep simple; subpages only) ===
-# If you later want blog-style posts, you can add collections or use _posts.
-collections: {}
+# === Collections (글이 쌓이는 구조) ===
+collections:
+  research:
+    output: true
+    permalink: /research/:title/
+  projects:
+    output: true
+    permalink: /activities/:title/
+
 
 defaults:
   - scope:

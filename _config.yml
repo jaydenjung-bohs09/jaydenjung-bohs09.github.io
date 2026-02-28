@@ -25,18 +25,28 @@ collections:
     permalink: /activities/:title/
 
 
+# === Sidebar Navigation ===
 defaults:
   - scope:
       path: ""
       type: pages
     values:
+      sidebar:
+        nav: "main"
+  - scope:
+      path: ""
+      type: research
+    values:
       layout: single
       sidebar:
         nav: "main"
-
-# Enable top navigation (masthead) using _data/navigation.yml
-header:
-  nav: "main"
+  - scope:
+      path: ""
+      type: activities
+    values:
+      layout: single
+      sidebar:
+        nav: "main"
 
 author:
   name: "Jayden Jung"

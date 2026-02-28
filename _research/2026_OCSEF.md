@@ -1,5 +1,5 @@
 # Accelerating Global Innovation via Co-opetition Learning  
-## Replicator-Guided Warm-Start Multi-Agent Reinforcement Learning — Paper Explainer
+# Replicator-Guided Warm-Start Multi-Agent Reinforcement Learning — Paper Explainer
 
 This file explains the final write-up for the project.
 

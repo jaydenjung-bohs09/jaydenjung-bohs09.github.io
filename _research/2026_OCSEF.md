@@ -1,3 +1,13 @@
+---
+title: "Accelerating Global Innovation via Co-opetition Learning: Replicator-Guided Warm-Start Multi-Agent Reinforcement Learning"
+date: 2026.02
+layout: single
+categories: research
+sidebar:
+  nav: "main"
+mathjax: true
+---
+
 # Accelerating Global Innovation via Co-opetition Learning Replicator-Guided Warm-Start Multi-Agent Reinforcement Learning — Paper Explainer
 
 This file explains the final write-up for the project.

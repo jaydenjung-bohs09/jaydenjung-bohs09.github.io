@@ -1,21 +1,41 @@
-<!-- Force-load MathJax 3 for Minimal Mistakes -->
+<!-- ==========================================================================
+     LaTeX / MathJax 3 for Minimal Mistakes
+     --------------------------------------------------------------------------
+     Jekyll's kramdown is configured with `math_engine: mathjax` (_config.yml),
+     which turns $$ ... $$ into MathJax-2 style <script type="math/tex"> tags.
+     MathJax 3 ignores those tags, so the shim in `pageReady` below rewrites
+     them into \( ... \) / \[ ... \] before typesetting. Raw \( ... \) written
+     directly in markdown does NOT survive kramdown (the backslash is treated
+     as an escape), so always write math as $$ ... $$ in .md files.
+     ========================================================================== -->
 <script>
   window.MathJax = {
     tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      // Inline delimiters are produced by the shim below, not written by hand.
+      inlineMath: [['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
-      processEnvironments: true
+      processEnvironments: true,
+      tags: 'ams'
     },
     options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code',
+                     'annotation', 'annotation-xml'],
+      ignoreHtmlClass: 'no-mathjax',
+      processHtmlClass: 'mathjax-process'
     },
     startup: {
-      pageReady: () => {
-        // Re-render after Jekyll anchors load
-        return MathJax.startup.defaultPageReady().then(() => {
-          MathJax.typesetPromise();
+      pageReady: function () {
+        var nodes = document.querySelectorAll('script[type^="math/tex"]');
+        Array.prototype.forEach.call(nodes, function (node) {
+          var isDisplay = (node.getAttribute('type') || '').indexOf('mode=display') > -1;
+          var tex = node.textContent || '';
+          var box = document.createElement(isDisplay ? 'div' : 'span');
+          box.className = 'mathjax-process';
+          box.textContent = isDisplay ? '\\[' + tex + '\\]' : '\\(' + tex + '\\)';
+          node.parentNode.replaceChild(box, node);
         });
+        return MathJax.startup.defaultPageReady();
       }
     }
   };

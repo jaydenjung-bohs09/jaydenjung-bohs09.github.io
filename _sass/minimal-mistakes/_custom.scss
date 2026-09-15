@@ -38,3 +38,18 @@
   background-color: #004851;
   transform: translateY(-2px);
 }
+
+/* --- LaTeX / MathJax ---------------------------------------------------- */
+
+/* Long display equations scroll instead of overflowing on narrow screens. */
+mjx-container[jax="CHTML"][display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+/* Keep inline math on the text baseline rather than nudging line height. */
+mjx-container[jax="CHTML"]:not([display="true"]) {
+  display: inline-block;
+  vertical-align: baseline;
+}
